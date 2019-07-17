@@ -3,12 +3,14 @@ import axios from "axios";
 
 import Title from "./Title.js";
 import Photo from "./Photo.js";
+import Copyright from "./Copyright.js";
 import Explanation from "./Explanation.js";
 
 export default function APOData() {
 
     const [title, setTitle] = useState([]);
     const [pic, setPic] = useState([]);
+    const [cr, setCr] = useState([]);
     const [ex, setEx] = useState([]);
 
     useEffect(() => {
@@ -25,6 +27,9 @@ export default function APOData() {
 
                 const theEx = res.data.explanation;
                 setEx(theEx);
+
+                const theCr = res.data.copyright;
+                setCr(theCr);
             })
             .catch(err => {
                 console.log('Error: ', err);
@@ -35,6 +40,7 @@ export default function APOData() {
         <div>
             <Title title={title} />
             <Photo pic={pic} />
+            <Copyright copyright={cr} />
             <Explanation explain={ex} />
         </div>
     );
