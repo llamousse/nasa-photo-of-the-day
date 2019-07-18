@@ -5,6 +5,7 @@ import Title from "./Title.js";
 import Photo from "./Photo.js";
 import Copyright from "./Copyright.js";
 import Explanation from "./Explanation.js";
+import Today from "./Today.js";
 
 export default function APOData() {
 
@@ -12,6 +13,8 @@ export default function APOData() {
     const [pic, setPic] = useState([]);
     const [cr, setCr] = useState([]);
     const [ex, setEx] = useState([]);
+    const [media, setMedia] = useState([]);
+    const [today, setToday] = useState([]);
 
     useEffect(() => {
         axios
@@ -30,6 +33,12 @@ export default function APOData() {
 
                 const theCr = res.data.copyright;
                 setCr(theCr);
+
+                const medias = res.data.media_type;
+                setMedia(medias);
+
+                const todays = res.data.date;
+                setToday(todays);
             })
             .catch(err => {
                 console.log('Error: ', err);
@@ -39,7 +48,8 @@ export default function APOData() {
     return (
         <div>
             <Title title={title} />
-            <Photo pic={pic} />
+            <Today text={today} />
+            <Photo pic={pic} media={media} />
             <Copyright copyright={cr} />
             <Explanation explain={ex} />
         </div>
