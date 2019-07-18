@@ -1,4 +1,5 @@
 import React from "react";
+import { Title, Image, Video, Explanation } from "./StyledWidgets.js";
 
 function PhotoCard(props) {
     console.log(props);
@@ -7,15 +8,21 @@ function PhotoCard(props) {
 
     return (
         <div>
-            <h2>{props.title}</h2>
+            <Title>{props.title}</Title>
 
-            { media === "image" ? <img src={props.url} style={{ maxWidth: "50%" }} />
-            : <iframe src={props.url} width="500" height="300"></iframe>
+            { media === "image" 
+            ? 
+                <Image src={props.url} alt="NASA's Img of the Day" />
+            :   
+                <Video src={props.url} width="500" height="300"></Video>
             }
+
             <div>{props.date}</div>
-            <p style={{ margin: "auto", width: "80%" }}>
+            
+            <Explanation>
                 {props.explanation}
-            </p>
+            </Explanation>
+
         </div>
     );
 }
