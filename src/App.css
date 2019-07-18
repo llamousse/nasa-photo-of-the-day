@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.Load {
+  font-size: 30px; 
+  margin-top: 150px;
+}
+
+h1 {
+  font-size: 30px;
+  color: white;
+  background-color: #1F1F1C;
+  margin-top: 0;
+  padding: 20px 0;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

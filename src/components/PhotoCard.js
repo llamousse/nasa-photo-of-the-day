@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Image, Video, Explanation } from "./StyledWidgets.js";
+import { Container, Title, Image, Video, Date, Explanation } from "./StyledWidgets.js";
 
 function PhotoCard(props) {
     console.log(props);
@@ -7,7 +7,7 @@ function PhotoCard(props) {
     const media = props.media;
 
     return (
-        <div>
+        <Container>
             <Title>{props.title}</Title>
 
             { media === "image" 
@@ -17,13 +17,13 @@ function PhotoCard(props) {
                 <Video src={props.url} width="500" height="300"></Video>
             }
 
-            <div>{props.date}</div>
+            <Date>Date: {props.date}</Date>
             
             <Explanation>
                 {props.explanation}
             </Explanation>
 
-        </div>
+        </Container>
     );
 }
 
